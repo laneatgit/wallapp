@@ -1,0 +1,27 @@
+<%- include layout/header.html %>
+
+<div class="row">
+  <div class="col-md-6">
+    <hr />
+            
+    <form action="/posts" method="POST">        
+        <h3>投稿</h3>
+      
+        <div class="form-group">
+          <textarea class="form-control" rows="7" name="content"
+            id="new-post-content" maxlength="255"></textarea>
+
+          <p class="counter">
+            <span id="char-counter">255</span> 文字残り
+          </p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Ok</button>&nbsp;
+          <a href="/" class="btn btn-default">キャンセル</a>
+        </div>
+      </form>
+  </div>
+</div>
+
+<%- include layout/footer.html %>

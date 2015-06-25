@@ -1,0 +1,18 @@
+<% comments.forEach(function(comment) { %>
+<div class="post">
+  <div class="content">
+    <div class="meta">
+      <span class="username">
+        @<%- comment.author.username %>
+      </span>
+      <span class="createdAt">
+        <%- moment(comment.createdAt).fromNow() %>
+      </span>
+        </div>
+    <div class="body">
+      <%= comment.content %>
+    </div>
+    <br />
+   </div>
+</div>
+<% }) %>

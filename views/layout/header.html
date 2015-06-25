@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- locals.title || 'Wall App' %></title>
+    <link rel="stylesheet" href="/css/lib/bootstrap.css">
+    <link rel="stylesheet" href="/css/core.css">
+  </head>
+  <body>
+    <div class="container">
+    
+      <div id="head" class="row">
+        <div class="col-md-12">
+          <h3>Welcome to WallApp!</h3>
+          <div class="col-md-12">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+
+            <% if ( typeof user != 'undefined' && user) { %>
+            <div class="welcome">
+              <form action="/logout" method="POST" class="form-inline">
+                <label>
+                   <%= user.username %>さんがログイン中です。
+                </label>
+                <button type="submit" class="btn btn-default">ログオウト</button>
+                <input type="hidden" name="_method" value="DELETE" />
+              </form>
+            </div>
+            <% } else { %>
+              <p>
+                <a href="/login">ログイン</a> または <a href="/register">登録</a>
+              </p>
+            <% } %>
+          </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+            <div id="post-updates">
+              <a href="#"><span class="post-counter">X</span> new post(s) available.</a>
+            </div>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+
+
+    
+

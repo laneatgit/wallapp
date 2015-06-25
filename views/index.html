@@ -1,0 +1,53 @@
+<%- include layout/header.html %>
+
+  <div class="row">
+  <div class="col-md-12">
+    <% if (successMsg) { %>
+    <p class="notice bg-success">
+      <%= successMsg %>
+    </p>
+    <% } else if (errorMsg) { %>
+    <p class="notice bg-danger">
+      <%= errorMsg %>
+    </p>
+    <% } %>
+
+      <!--
+    <% if (user) { %>
+    <div class="new-post">
+      <form action="/posts" method="POST">
+        <h3>New post</h3>
+
+        <div class="form-group">
+          <textarea class="form-control" rows="7" name="content"
+            id="new-post-content" maxlength="255"></textarea>
+
+          <p class="counter">
+            <span id="char-counter">255</span> chars remaining
+          </p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Publish!</button>
+        </div>
+      </form>
+    </div>
+    <% } %>
+      -->
+
+  </div>
+      <form  action="/posts">
+        <button class="btn btn-link" type="submit" >ささやく</button>       
+    </form>
+  <div class="col-md-12" id="posts">
+    <!--<h3>つぶやき</h3>-->
+
+    <% if (!posts.length) { %>
+    <!--<p>Be the first to write a post!</p>-->
+    <% } else { %>
+      <% include _posts.html %>
+    <% } %>
+  </div>
+</div>
+
+<%- include layout/footer.html %>
