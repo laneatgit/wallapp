@@ -353,6 +353,9 @@ font-style: oblique;
     text-decoration: none;
     color: lightyellow;
 }
+#postcontent .btn-link:focus {
+  outline: none;
+}
 
 .post .body {
   vertical-align: middle;

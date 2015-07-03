@@ -23,12 +23,14 @@
     </div>
     
      <div class="meta button-container">
-          <form method="post" action="/posts/<%= post._id %>/up_vote">
-            <button class="btn btn-link" type="submit" ><i class="icon-smile"></i> +<%- post.likes %></button>
-        </form>
-        <form method="post" action="/posts/<%= post._id %>/down_vote">
-            <button class="btn btn-link" type="submit" ><i class="icon-frown"></i> -<%- post.dislikes %></button>
-        </form>
+        <!--<form method="post" action="/posts/<%= post._id %>/up_vote">-->
+            <!--<button class="btn btn-link" type="submit" ><i class="icon-smile"></i> +<%- post.likes %></button>-->
+            <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',1);"><i class="icon-smile"></i> +<%- post.likes %></button>
+        <!--</form>-->
+        <!--<form method="post" action="/posts/<%= post._id %>/down_vote">-->
+            <!--<button class="btn btn-link" type="submit" ><i class="icon-frown"></i> -<%- post.dislikes %></button>-->
+            <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',-1);"><i class="icon-frown"></i> -<%- post.dislikes %></button>
+        <!--</form>-->
         <form action="/posts/<%= post._id %>/comments">
            <% if (post.comments) { %>
               <button class="btn btn-link" type="submit" ><i class="icon-comment "></i> <%= post.comments.length %></button>
