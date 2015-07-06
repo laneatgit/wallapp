@@ -31,12 +31,28 @@
             <!--<button class="btn btn-link" type="submit" ><i class="icon-frown"></i> -<%- post.dislikes %></button>-->
             <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',-1);"><i class="icon-frown"></i> -<%- post.dislikes %></button>
         <!--</form>-->
-        <form action="/posts/<%= post._id %>/comments">
+        <!--<form action="/posts/<%= post._id %>/comments">-->
            <% if (post.comments) { %>
-              <button class="btn btn-link" type="submit" ><i class="icon-comment "></i> <%= post.comments.length %></button>
+              <!--<button class="btn btn-link" type="submit" ><i class="icon-comment "></i> <%= post.comments.length %></button>-->
+              <button id="showcomment" class="btn btn-link"  ><i class="icon-comment "></i> <%= post.comments.length %></button>
            <% } %>  
-        </form>
-    </div>  
-   </div>
+        <!--</form>-->
+    </div>
+ </div>
+ 
+     <div class="comment-area" data-description="Comment area">
+      <div class="form-group">
+      　　<h3>コメント</h3>
+        <textarea class="form-control" rows="7" name="content" id="new-post-content" maxlength="255"></textarea>
+        <div class="pull-right">
+            <span class="counter">
+              <span id="char-counter">255</span> 文字残り
+            </span>
+            <button  class="btn btn-primary">投稿</button>
+        </div>
+        <div class='clearfix'>
+        
+      </div>
+    </div>
 </div>
 <% }) %>

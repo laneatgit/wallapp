@@ -8,8 +8,10 @@
  */
  @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 body {
-    background-color: #f2f2f2;
-    font-family: 'EB Garamond', serif;
+    /*background-color: #f2f2f2;*/
+    background-color: #1a1a1a;
+    /*font-family: 'EB Garamond', serif;*/
+    font-family: 'Noto Sans Japanese', sans-serif;
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -20,7 +22,8 @@ body {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Noto Sans Japanese', sans-serif;
     font-weight: 300;
     color: #333;
 }
@@ -366,6 +369,8 @@ font-style: oblique;
   color: #999;
   margin: 10px 0;
 }
+
+
 .counter {
   color: #999;
   margin: 10px 0;
@@ -387,6 +392,13 @@ font-style: oblique;
   color: cadetblue;
 }
 
+.comment-area textarea{
+ background-color: #1a1a1a;
+ color: lightyellow;
+}
+
+
+/* BUTTONS */
 .button-container form,
 .button-container form div {
     display: inline;
