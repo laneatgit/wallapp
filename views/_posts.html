@@ -34,12 +34,13 @@
         <!--<form action="/posts/<%= post._id %>/comments">-->
            <% if (post.comments) { %>
               <!--<button class="btn btn-link" type="submit" ><i class="icon-comment "></i> <%= post.comments.length %></button>-->
-              <button id="showcomment" class="btn btn-link"  ><i class="icon-comment "></i> <%= post.comments.length %></button>
+              <button class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment "></i> <%= post.comments.length %></button>
            <% } %>  
         <!--</form>-->
     </div>
  </div>
- 
+    
+    <!--
      <div class="comment-area" data-description="Comment area">
       <div class="form-group">
       　　<h3>コメント</h3>
@@ -54,5 +55,7 @@
         
       </div>
     </div>
+    </div>
+    -->
 </div>
 <% }) %>
