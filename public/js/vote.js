@@ -34,28 +34,20 @@ function addVote(sender,id,vote_rank) {
 
 function showComment(sender,post_id) {
     
-    var ejs_url = '/_comments.ejs';
-    var data_url = '/posts/' + :post_id + '/comments';
-    
-    // Grab the template
-    $.get(ejs_url, function (template) {
-        // Compile the EJS template.
-        var func = ejs.compile(template);
-
-        // Grab the data
-        $.get(data_url, function (data) {
-           // Generate the html from the given data.
-           var html = func(data);
-           
-           
-           $('#divResults').html(html);
-           
-           
-        });
-    });
+    var url = '/posts/' + post_id + '/comments';
+    $.ajax({
+	url: url,
+	data: "",
+    dataType: "html",
+	success: function(data){
+        $(sender).parent().parent().append(data);
+        
+	}
+	});
     
     
     // find post_id with attribute data-id
+    /*
     var div = '<div class="comment-area" data-description="Comment area">' +
                   '<div class="form-group">' +
                   　　'<h3>コメント</h3>' +
@@ -73,6 +65,6 @@ function showComment(sender,post_id) {
                 '</div>' ;
         
     $(sender).parent().parent().append($(div));
-    
+    */
     
 }

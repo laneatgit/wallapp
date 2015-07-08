@@ -1,0 +1,44 @@
+<%- include layout/header.html %>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>Login to proceed</h3>
+    <hr />
+    
+    <% if (!comments.length) { %>
+    <!--<p>Be the first to write a comment!</p>-->
+    <% } else { %>
+      <% include _comments.html %>
+    <% } %>
+    
+    <% if ( typeof user != 'undefined' && user) { %>  
+      <form action="/comments" method="POST">
+          <input type="hidden" name="postid" value="<%= postid %>">
+          <h3>コメント</h3>
+
+          <div class="form-group">
+            <textarea class="form-control" rows="7" name="content"
+              id="new-post-content" maxlength="255"></textarea>
+
+            <p class="counter">
+              <span id="char-counter">255</span> 文字残り
+            </p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Ok</button>&nbsp;
+            <a href="/" class="btn btn-default">キャンセル</a>
+          </div>
+        </form>
+      <% } else { %>
+              <p>
+                  ログインしてからコメントしてください。  
+              </p>
+              <p>
+                <a href="/login">ログイン</a> or <a href="/登録">登録</a>
+              </p>
+            <% } %>
+  </div>
+</div>
+
+<%- include layout/footer.html %>
