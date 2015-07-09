@@ -31,40 +31,30 @@ function addVote(sender,id,vote_rank) {
 	});
 }
 
+function submitComment(sender, post_id) {
+    var url = '/comments';
+    var parent = $(sender).parent().parent();
+    $.ajax({
+	url: url,
+	data: $("#comment-form-" + String(post_id)).serialize(),
+    type: "POST",
+    dataType: "html",
+	success: function(html){
+        //parent.append(html);
+	}
+	});
+}
 
 function showComment(sender,post_id) {
     
     var url = '/posts/' + post_id + '/comments';
+    var parent = $(sender).parent().parent();
     $.ajax({
-	url: url,
-	data: "",
-    dataType: "html",
-	success: function(data){
-        $(sender).parent().parent().append(data);
-        
-	}
+        url: url,
+        data: "",
+        dataType: "html",
+        success: function(html){
+            parent.append(html);
+        }
 	});
-    
-    
-    // find post_id with attribute data-id
-    /*
-    var div = '<div class="comment-area" data-description="Comment area">' +
-                  '<div class="form-group">' +
-                  　　'<h3>コメント</h3>' +
-                    '<textarea class="form-control" rows="7" name="content" id="new-post-content" maxlength="255"></textarea>' +
-                    '<div class="pull-right">' +
-                    '    <span class="counter">' +
-                    '      <span id="char-counter">255</span> 文字残り' +
-                    '    </span>' +
-                    '    <button  class="btn btn-primary">投稿</button>' +
-                    '</div>' +
-                    '<div class="clearfix">' +
-                    
-                  '</div>' +
-                '</div>' +
-                '</div>' ;
-        
-    $(sender).parent().parent().append($(div));
-    */
-    
 }

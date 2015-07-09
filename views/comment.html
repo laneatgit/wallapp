@@ -7,36 +7,18 @@
       <% include _comments.html %>
     <% } %>
     
-    <!--
     
-        <% if ( typeof user != 'undefined' && user) { %>  
-          <form action="/comments" method="POST">
-              <input type="hidden" name="postid" value="<%= postid %>">
-              <h3>コメント</h3>
-
-              <div class="form-group">
-                <textarea class="form-control" rows="7" name="content"
-                  id="new-post-content" maxlength="255"></textarea>
-
-                <p class="counter">
-                  <span id="char-counter">255</span> 文字残り
-                </p>
-              </div>
-
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Ok</button>&nbsp;
-                <a href="/" class="btn btn-default">キャンセル</a>
-              </div>
-            </form>
-        <% } else { %>
-                  <p>
-                      ログインしてからコメントしてください。  
-                  </p>
-                  <p>
-                    <a href="/login">ログイン</a> or <a href="/登録">登録</a>
-                  </p>
-        <% } %>
+    
+    <% if ( typeof user != 'undefined' && user) { %>  
+      <form id="comment-form-<%- postid %>">
+          <input type="hidden" name="postid" value="<%= postid %>"/>
+          <textarea class="form-control" rows="1" name="content" id="new-post-content" maxlength="255"></textarea>
+          <button type="button" class="btn" onClick="submitComment(this,'<%- postid %>');">Reply</button>
+     </form>
+    <% } else { %>
+          <p>ログインしてからコメントしてください。<span><a href="/login">ログイン</a> or <a href="/register">登録</a></span></p>
+    <% } %>
   
-    -->
+    
 </div>
 
