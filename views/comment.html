@@ -1,24 +1,26 @@
 
-<div>
+<div class="comment-container">
     
-    <% if (!comments.length) { %>
-    　　<p>Be the first to write a comment!</p>
-    <% } else { %>
-      <% include _comments.html %>
-    <% } %>
-    
-    
-    
-    <% if ( typeof user != 'undefined' && user) { %>  
+    <% if ( typeof user != "undefined" && user) { %>  
       <form id="comment-form-<%- postid %>">
           <input type="hidden" name="postid" value="<%= postid %>"/>
-          <textarea class="form-control" rows="1" name="content" id="new-post-content" maxlength="255"></textarea>
-          <button type="button" class="btn" onClick="submitComment(this,'<%- postid %>');">Reply</button>
+          <div class="input-group">
+              <textarea class="form-control" rows="1" name="content" id="new-post-content" maxlength="255" placeholder="Say something..."></textarea>
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary" onClick="submitComment(this,"<%- postid %>");">Reply</button>
+              </span>
+              
+          </div>
      </form>
     <% } else { %>
           <p>ログインしてからコメントしてください。<span><a href="/login">ログイン</a> or <a href="/register">登録</a></span></p>
     <% } %>
-  
+
+    <% if (!comments.length) { %>
+    　　<p>Be the first to write a comment!</p>
+    <% } else { %>
+      <% include _comments.html %>
+    <% } %>    
     
 </div>
 

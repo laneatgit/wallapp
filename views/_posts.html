@@ -1,10 +1,5 @@
 <% posts.forEach(function(post) { %>
-<div class="post" data-id="<%= post._id %>" data-timestamp=<%= post.createdAt %>>
-  <!--<% if (post.author) { %>
-    <img class="thumbnail" src="<%- getGravatarImage(post.author.email, { size: 65 }) %>" />
-  <% } else { %>
-    <img class="thumbnail" src="<%- getGravatarImage('anoymous', { size: 65 }) %>" />
-  <% } %>-->  
+<div class="post" data-id="<%= post._id %>" data-timestamp="<%= post.createdAt %>" >
   <div class="content" id="postcontent">
     <div class="meta">
       <span class="username">
@@ -18,44 +13,18 @@
         <%- moment(post.createdAt).fromNow() %>
       </span>
         </div>
-    <div class="body">
+    <div class="body" onClick="showComment(this,'<%- post._id %>');" data-comments-visible="false">
       <%= post.content %>
     </div>
-    
      <div class="meta button-container">
-        <!--<form method="post" action="/posts/<%= post._id %>/up_vote">-->
-            <!--<button class="btn btn-link" type="submit" ><i class="icon-smile"></i> +<%- post.likes %></button>-->
             <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',1);"><i class="icon-smile"></i> +<%- post.likes %></button>
-        <!--</form>-->
-        <!--<form method="post" action="/posts/<%= post._id %>/down_vote">-->
-            <!--<button class="btn btn-link" type="submit" ><i class="icon-frown"></i> -<%- post.dislikes %></button>-->
             <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',-1);"><i class="icon-frown"></i> -<%- post.dislikes %></button>
-        <!--</form>-->
-        <!--<form action="/posts/<%= post._id %>/comments">-->
-           <% if (post.comments) { %>
-              <!--<button class="btn btn-link" type="submit" ><i class="icon-comment "></i> <%= post.comments.length %></button>-->
-              <button class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment "></i> <%= post.comments.length %></button>
-           <% } %>  
-        <!--</form>-->
+            
+           <!--<% if (post.comments) { %>-->
+              <!--<button class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment "></i> <%= post.comments.length %></button>-->
+           <!--<% } %>-->
+           
     </div>
  </div>
-    
-    <!--
-     <div class="comment-area" data-description="Comment area">
-      <div class="form-group">
-      　　<h3>コメント</h3>
-        <textarea class="form-control" rows="7" name="content" id="new-post-content" maxlength="255"></textarea>
-        <div class="pull-right">
-            <span class="counter">
-              <span id="char-counter">255</span> 文字残り
-            </span>
-            <button  class="btn btn-primary">投稿</button>
-        </div>
-        <div class='clearfix'>
-        
-      </div>
-    </div>
-    </div>
-    -->
 </div>
 <% }) %>

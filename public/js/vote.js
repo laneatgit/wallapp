@@ -45,16 +45,30 @@ function submitComment(sender, post_id) {
 	});
 }
 
+function findPostContainer(post_id) {
+    return $(".post[data-id='" + post_id + "']");
+}
+
 function showComment(sender,post_id) {
-    
+
     var url = '/posts/' + post_id + '/comments';
-    var parent = $(sender).parent().parent();
-    $.ajax({
-        url: url,
-        data: "",
-        dataType: "html",
-        success: function(html){
-            parent.append(html);
-        }
-	});
+    var parent = findPostContainer(post_id);
+    var comment_region_visible = $(sender).data("comments-visible");
+    if (comment_region_visible === false)
+    { 
+        // load comments
+        $.ajax({
+            url: url,
+            data: "",
+            dataType: "html",
+            success: function(html){
+                parent.append(html);
+                $.data(sender, 'comments-visible', true);
+                
+            }
+        });
+    } else {
+    
+        // hide comments
+    } 
 }
