@@ -27,8 +27,8 @@ exports.show = function(req, res, next) {
 
 exports.create = function(req, res, next) {
   
-  var postid = req.body.postid;
-  req.Post.findById(postid, function (err, post) {
+    var postid = req.body.postid;
+    req.Post.findById(postid, function (err, post) {
     if (err) next(err);
     
     // if can not find?

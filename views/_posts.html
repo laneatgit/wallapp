@@ -1,5 +1,7 @@
 <% posts.forEach(function(post) { %>
 <div class="post" data-id="<%= post._id %>" data-timestamp="<%= post.createdAt %>" >
+ 
+  <!-- Content area -->
   <div class="content" id="postcontent">
     <div class="meta">
       <span class="username">
@@ -26,5 +28,9 @@
            
     </div>
  </div>
-</div>
+ 
+ <!-- Comments area -->
+ <div id = 'post_<%- post._id %>_comment_area' >
+ </div>
+ </div>
 <% }) %>

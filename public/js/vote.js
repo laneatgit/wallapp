@@ -31,12 +31,14 @@ function addVote(sender,id,vote_rank) {
 	});
 }
 
-function submitComment(sender, post_id) {
+function submitComment(sender,post_id) {
+    
+    // form.serialize() does not include hidden value, so must to add it manually.
+    var form_data = 'postid=' + post_id + '&' + $('#comment-form-' + post_id + ' textarea').serialize();
     var url = '/comments';
-    var parent = $(sender).parent().parent();
     $.ajax({
 	url: url,
-	data: $("#comment-form-" + String(post_id)).serialize(),
+	data: form_data,
     type: "POST",
     dataType: "html",
 	success: function(html){
@@ -52,7 +54,7 @@ function findPostContainer(post_id) {
 function showComment(sender,post_id) {
 
     var url = '/posts/' + post_id + '/comments';
-    var parent = findPostContainer(post_id);
+    var parent = $('#post_' + post_id + '_comment_area');
     var comment_region_visible = $(sender).data("comments-visible");
     if (comment_region_visible === false)
     { 
@@ -70,5 +72,7 @@ function showComment(sender,post_id) {
     } else {
     
         // hide comments
+        parent.empty();        
+        $.data(sender, 'comments-visible', false);
     } 
 }

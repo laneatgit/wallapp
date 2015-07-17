@@ -3,11 +3,13 @@
     
     <% if ( typeof user != "undefined" && user) { %>  
       <form id="comment-form-<%- postid %>">
-          <input type="hidden" name="postid" value="<%= postid %>"/>
+          <div style="display:none;">
+          <input type="text" name="postid" value="<%= postid %>"/>
+          </div>
           <div class="input-group">
-              <textarea class="form-control" rows="1" name="content" id="new-post-content" maxlength="255" placeholder="Say something..."></textarea>
+              <textarea class="form-control new-post-content" rows="1" name="content" maxlength="255" placeholder="Say something..."></textarea>
               <span class="input-group-btn">
-                  <button type="button" class="btn btn-primary" onClick="submitComment(this,"<%- postid %>");">Reply</button>
+                  <button type="button" class="btn btn-primary" onClick="submitComment(this,'<%- postid %>');">Reply</button>
               </span>
               
           </div>

@@ -363,6 +363,7 @@ font-style: oblique;
 .post .body {
   vertical-align: middle;
   font-size: 30px;
+  cursor: pointer;
   
 }
 .post .meta {
