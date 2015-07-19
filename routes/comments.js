@@ -21,8 +21,17 @@ exports.show = function(req, res, next) {
     }));
     
   });
+};
+exports.new = function(req, res, next) {
+  var postid = req.params.postid;
+    res.render( 'new_comment', {
+        postid: postid,
+        user: req.user,
+        successMsg: req.flash('success')[0],
+        errorMsg: req.flash('error')[0]
+      });
 
- 
+  
 };
 
 exports.create = function(req, res, next) {
@@ -53,7 +62,7 @@ exports.create = function(req, res, next) {
         });
 
       }
-      res.redirect('/');
+      res.redirect('/today#post-id-' + postid);
     });
     
   }); 

@@ -1,11 +1,12 @@
 <%- include layout/header.html %>
 
-<div id="f">
-    <div class="container">
+
+    <div class="container vertical-center">
         <div class="row">
           <div class="col-lg-offset-3 col-lg-6">
                     
-            <form action="/posts" method="POST">        
+            <form action="/posts" method="POST">
+                        
                 <h3>投稿</h3>
               
                 <div class="form-group">
@@ -19,11 +20,11 @@
 
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary btn-large">投稿</button>&nbsp;
-                  <a href="/" class="btn btn-default btn-large">キャンセル</a>
+                  <button type="button" onclick="history.go(-1);" class="btn btn-default btn-large">戻る</button>
                 </div>
               </form>
           </div>
         </div>
   </div>
-</div>
+
 <%- include layout/footer.html %>

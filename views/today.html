@@ -1,0 +1,15 @@
+<%- include layout/header.html %>
+
+	
+	<div class="container" id="posts">
+                 
+                    <% if (!posts.length) { %>
+                    <!--<p>Be the first to write a post!</p>-->
+                    <% } else { %>
+                      <% include _posts.html %>
+                    <% } %>
+                 
+	</div><!-- /container -->
+	
+
+<%- include layout/footer.html %>

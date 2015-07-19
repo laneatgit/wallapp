@@ -6,6 +6,8 @@
         $('body').toggleClass('body-push-toleft');
         $('#theMenu').toggleClass('menu-open');
     });
+
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
     
             
 })(jQuery)

@@ -35,6 +35,7 @@ function submitComment(sender,post_id) {
     
     // form.serialize() does not include hidden value, so must to add it manually.
     var form_data = 'postid=' + post_id + '&' + $('#comment-form-' + post_id + ' textarea').serialize();
+    
     var url = '/comments';
     $.ajax({
 	url: url,
@@ -42,7 +43,9 @@ function submitComment(sender,post_id) {
     type: "POST",
     dataType: "html",
 	success: function(html){
-        //parent.append(html);
+        // get user info from client cookies?
+
+
 	}
 	});
 }
@@ -55,7 +58,7 @@ function showComment(sender,post_id) {
 
     var url = '/posts/' + post_id + '/comments';
     var parent = $('#post_' + post_id + '_comment_area');
-    var comment_region_visible = $(sender).data("comments-visible");
+    var comment_region_visible = $(sender).data("comments-visible") || false;    
     if (comment_region_visible === false)
     { 
         // load comments

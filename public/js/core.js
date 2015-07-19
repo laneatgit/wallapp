@@ -1,4 +1,7 @@
 $(function() {
+
+  $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+
   var $newPost = $('#new-post-content');
   var $postsContainer = $('#posts');
   var $postsHeading = $postsContainer.find('h3');

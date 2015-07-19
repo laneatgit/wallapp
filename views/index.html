@@ -1,94 +1,18 @@
 <%- include layout/header.html %>
 
-
-    <!-- Menu -->
-	<nav class="menu" id="theMenu">
-		<div class="menu-wrap">
-			<h1 class="logo"><a href="#home">Minimal</a></h1>
-			<i class="icon-remove menu-close"></i>
-			<a href="#home" class="smoothScroll">Home</a>
-			<a href="#about" class="smoothScroll">Posts</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-			<a href="#"><i class="icon-facebook"></i></a>
-			<a href="#"><i class="icon-twitter"></i></a>
-			<a href="#"><i class="icon-dribbble"></i></a>
-			<a href="#"><i class="icon-envelope"></i></a>
-		</div>
+	
+    <div id="headerwrap" >
 		
-		<!-- Menu button -->
-		<div id="menuToggle"><i class="icon-reorder"></i></div>
-	</nav>
-
-	<!-- ========== HEADER SECTION ========== -->
-	<section id="home" name="home"></section>
-    <div id="headerwrap">
-		<div class="container">
-        
-			<div class="logo">
-            	<!--<img src="/img/logo.png">-->
-            </div>
-			<br>
-			<div class="row">
-				<h1>MINIMAL THEME</h1>
-				<br>
-				<!--<h3>Hello, I'm Carlos. I love design.</h3>-->
-                <h3 class="button-container">
-                <button class="btn-success btn-large"><a href="#about" class="smoothScroll btn-success btn-large"><i class="icon-arrow-down icon-large"></i> View all posts </a></button>
-                <form  action="/posts">
-                    <button class="btn-warning btn-large" type="submit"><i class="icon-circle-arrow-right icon-large"></i> Write a post</button>
-                </form>
-                </h3>
-				<br>
-				<br>
-				<div class="col-lg-6 col-lg-offset-3">
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
-    
-    <!-- ========== ABOUT SECTION ========== -->
-	<section id="about" name="about"></section>
-    
-	<div id="f">
-		<div class="container">
-			<div class="row">
-				<h3>ALL POSTS</h3>
-				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				<h1 >秘ミツ</h1>
 				
-				<!-- INTRO INFORMATIO-->
+                <form  action="/posts">
+                    <h3><button class="btn-warning btn-large" type="submit"><i class="icon-circle-arrow-right icon-large"></i>投稿へ</button></h3>
+                </form>
                 
-                  <div  id="posts">
-                    <!--<h3>つぶやき</h3>-->
-
-                    <% if (!posts.length) { %>
-                    <!--<p>Be the first to write a post!</p>-->
-                    <% } else { %>
-                      <% include _posts.html %>
-                    <% } %>
-                  </div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /f -->
-    
-  <div class="row">
-  <!--
-  <div class="col-md-12">
-    <% if (successMsg) { %>
-    <p class="notice bg-success">
-      <%= successMsg %>
-    </p>
-    <% } else if (errorMsg) { %>
-    <p class="notice bg-danger">
-      <%= errorMsg %>
-    </p>
-    <% } %>
-
-    </div>
-      <form  action="/posts">
-        <button class="btn btn-link" type="submit" >ささやく</button>       
-    </form>
-</div>
--->
+				<br>
+				<br>
+			
+	</div><!-- /headerwrap -->
+  
 
 <%- include layout/footer.html %>

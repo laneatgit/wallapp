@@ -90,6 +90,7 @@ passport.deserializeUser(User.deserializeUser());
 var routes = require('./routes/index');
 
 app.get('/', routes.posts.index);
+app.get('/today', routes.posts.today);
 app.get('/login', routes.session.new);
 app.post('/login', passport.authenticate('local', {
   failureRedirect: '/login?unsuccessful=1'
@@ -106,6 +107,7 @@ app.post('/posts/:postid/up_vote',routes.posts.voteUp);
 app.post('/posts/:postid/down_vote',routes.posts.voteDown);
 // comment
 app.get('/posts/:postid/comments', routes.comments.show);
+app.get('/posts/:postid/newcomment', routes.comments.new);
 app.post('/comments', routes.users.ensureAuthenticated, routes.comments.create);
 
 

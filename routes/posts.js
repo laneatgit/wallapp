@@ -16,7 +16,24 @@ exports.index = function(req, res, next) {
     tpl = '_posts';
   }
   
- 
+  req.Post.getWith(opts, errTo(next, function(posts) {
+    res.render(tpl, {
+      posts: posts,
+      user: req.user,
+      successMsg: req.flash('success')[0],
+      errorMsg: req.flash('error')[0]
+    });
+  }));
+};
+
+exports.today = function(req, res, next) {
+  var opts = {};
+  var tpl = 'today';
+
+  if (req.query.partial) {
+    opts.older = req.query.older;
+    tpl = '_posts';
+  }
   
   req.Post.getWith(opts, errTo(next, function(posts) {
     res.render(tpl, {
@@ -87,7 +104,7 @@ exports.create = function(req, res, next) {
       });
     }
 
-    res.redirect('/');
+    res.redirect('/today');
   });
 };
 

@@ -1,5 +1,5 @@
 <% posts.forEach(function(post) { %>
-<div class="post" data-id="<%= post._id %>" data-timestamp="<%= post.createdAt %>" >
+<div class="post" id="post-id-<%= post._id %>" data-id="<%= post._id %>" data-timestamp="<%= post.createdAt %>" >
  
   <!-- Content area -->
   <div class="content" id="postcontent">
@@ -15,13 +15,14 @@
         <%- moment(post.createdAt).fromNow() %>
       </span>
         </div>
-    <div class="body" onClick="showComment(this,'<%- post._id %>');" data-comments-visible="false">
+    <div class="body"  data-comments-visible="false">
       <%= post.content %>
     </div>
      <div class="meta button-container">
             <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',1);"><i class="icon-smile"></i> +<%- post.likes %></button>
             <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',-1);"><i class="icon-frown"></i> -<%- post.dislikes %></button>
-            
+            <button  class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment"></i> <%- post.comments.length %></button>
+            <a href="/posts/<%- post._id %>/newcomment" class="btn btn-link" ><i class="icon-reply"></i>返信</a>
            <!--<% if (post.comments) { %>-->
               <!--<button class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment "></i> <%= post.comments.length %></button>-->
            <!--<% } %>-->
