@@ -39,7 +39,7 @@ Post.statics.getWith = function(opts, callback) {
     opts = {};
   }
 
-  opts.limit = opts.limit || 20;
+  opts.limit = opts.limit || 10;
 
   var query = this.find();
 

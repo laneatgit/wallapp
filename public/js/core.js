@@ -22,6 +22,7 @@ $(function() {
     $(window).scroll(function() {
       if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
         // no need to execute cb() multiple times, so we unbind the handler
+
         $(window).unbind('scroll');
         cb();
       }
@@ -52,7 +53,8 @@ $(function() {
   };
 
   var displayLoadingMessage = function() {
-    var loadingItem = $('<div class="loading">Loading older posts, please wait...</div>');
+    //var loadingItem = $('<div class="loading">Loading older posts, please wait...</div>');
+    var loadingItem = $('<div class="loading"><i class="fa fa-refresh fa-spin"></i> 過去の投稿をローティングしています・・・ </div>');
     loadingItem.appendTo($postsContainer);
   };
 
@@ -77,7 +79,7 @@ $(function() {
     // search for posts that are older than (or eqal to) the last post
     if (olderThan) {
       $.ajax({
-        url: '/?partial=1&older=' + olderThan
+        url: '/today?partial=1&older=' + olderThan
       })
       .done(insertPosts.bind(null, existingPosts))
       .fail(displayLoadingError)
