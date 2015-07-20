@@ -2,7 +2,7 @@
 <div class="post" id="post-id-<%= post._id %>" data-id="<%= post._id %>" data-timestamp="<%= post.createdAt %>" >
  
   <!-- Content area -->
-  <div class="content" id="postcontent">
+  <div class="content postcontent" >
     <div class="meta">
       <span class="username">
           <% if (post.author) { %>
@@ -19,10 +19,10 @@
       <%= post.content %>
     </div>
      <div class="meta button-container">
-            <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',1);"><i class="icon-smile"></i> +<%- post.likes %></button>
-            <button  class="btn btn-link" onClick="addVote(this,'<%- post._id %>',-1);"><i class="icon-frown"></i> -<%- post.dislikes %></button>
-            <button  class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment"></i> <%- post.comments.length %></button>
-            <a href="/posts/<%- post._id %>/newcomment" class="btn btn-link" ><i class="icon-reply"></i>返信</a>
+            <button  class="btn btn-link faa-parent animated-hover" onClick="addVote(this,'<%- post._id %>',1);"><i class="fa fa-smile-o faa-tada"></i> +<%- post.likes %></button>
+            <button  class="btn btn-link faa-parent animated-hover" onClick="addVote(this,'<%- post._id %>',-1);"><i class="fa fa-frown-o faa-tada"></i> -<%- post.dislikes %></button>
+            <button  class="btn btn-link faa-parent animated-hover" onClick="showComment(this,'<%- post._id %>');"><i class="fa fa-comment faa-tada"></i> <%- post.comments.length %></button>
+            <a href="/posts/<%- post._id %>/newcomment" class="btn-link faa-parent animated-hover" ><i class="fa fa-reply faa-shake"></i>返信</a>
            <!--<% if (post.comments) { %>-->
               <!--<button class="btn btn-link" onClick="showComment(this,'<%- post._id %>');"><i class="icon-comment "></i> <%= post.comments.length %></button>-->
            <!--<% } %>-->

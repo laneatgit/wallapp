@@ -2,12 +2,12 @@ function addVote(sender,id,vote_rank) {
 
     var votes =parseInt($(sender).text());
     var url = "/posts/" + id + "/up_vote";
-    var icon = "<i class='icon-smile'></i>";
+    var icon = "<i class='fa fa-smile-o faa-tada'></i>";
     var sign = "+";
     if (vote_rank === -1)
     {
         url = "/posts/" + id + "/down_vote";
-        icon = "<i class='icon-frown'></i>";
+        icon = "<i class='fa fa-frown-o faa-tada'></i>";
         sign = "";
     }
     $.ajax({
