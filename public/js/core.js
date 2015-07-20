@@ -1,6 +1,11 @@
 $(function() {
 
+   
   $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+  var site_url = location.protocol + '//' + location.hostname;
+  $('.fb-like').attr('data-href',site_url);
+  $('.twitter-share-button').attr('data-url',site_url);
+
 
   var $newPost = $('#new-post-content');
   var $postsContainer = $('#posts');
