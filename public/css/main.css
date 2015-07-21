@@ -22,6 +22,10 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+    ::selection {
+    color: white; 
+    background: #f85c37;
+    }
 
 /* Links */
  hr {
@@ -181,7 +185,7 @@ font-style: oblique;
 }
 
 .comment {
-  border-top: 1px dotted #CCC;
+  
   margin: 0 0 0 0;
   padding: 5px;
   overflow: hidden;
@@ -189,7 +193,6 @@ font-style: oblique;
   color: white;
   font-size: 18px;
   font-weight: 100;
-  font-family: 'Noto Sans Japanese', sans-serif;
   font-style: oblique;
 }
 
@@ -204,7 +207,7 @@ font-style: oblique;
   color: #999;
   margin: 1px 0;
 }
-
+/*
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
@@ -212,7 +215,7 @@ font-style: oblique;
   display: flex;
   align-items: center;
 }
-
+*/
 
 .postcontent .btn-link:hover, .postcontent .btn-link:hover i{
     color: #f85c37;
@@ -222,5 +225,20 @@ font-style: oblique;
   background-color: #f85c37;
 }
 
+.postcontent  * .fa-disabled, .postcontent  * .fa-disabled:hover  {
+  color: gray;
+}
+.postcontent  * .fa-disabled, .postcontent  * .fa-disabled:hover  i{
+  color: gray;
+}
+.postcontent  .fa-disabled  *, .postcontent  .fa-disabled  *:hover{
+  color: gray;
+}
 
+.comment-container {
+   border-radius: 25px;
+    border: 1px solid lightyellow;
+    
+    
+}
 
