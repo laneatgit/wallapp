@@ -154,5 +154,5 @@ process.on('uncaughtException', die);
 var server = require('http').createServer(app);
 var broadcast = Primus(server);
 
-server.listen(80);
-console.log('server up on port %s', 80);
+server.listen(3000);
+console.log('server up on port %s', 3000);
